@@ -25,3 +25,4 @@ Przycisk do usuwania newsa
  
 
 Paginacja ma działać bez przeładowania strony.
+
