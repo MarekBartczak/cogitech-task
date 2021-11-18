@@ -6,6 +6,7 @@
         v-for="post in signedPostsByAuthor"
         v-bind:key="post.id"
         :post="post"
+        @removePostClicked="removePost(post.id)"
       />
 
     </div>
@@ -26,6 +27,11 @@ export default {
     },
     signedPostsByAuthor() {
       return this.$store.getters.signedPostsByAuthor;
+    },
+  },
+  methods: {
+    removePost(id) {
+      this.$store.dispatch("removePost", id);
     },
   },
   mounted() {

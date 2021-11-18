@@ -29,20 +29,23 @@ const getters = {
   },
 };
 const actions = {
-  getPosts({ commit }) {
+  getPosts(context) {
     axios.get(`https://jsonplaceholder.typicode.com/posts`).then((res) => {
-      commit("SET_POSTS", res.data);
+      context.commit("SET_POSTS", res.data);
     });
   },
-  getAuthors({ commit }) {
+  getAuthors(context) {
     axios.get(`https://jsonplaceholder.typicode.com/users`).then((res) => {
-      commit(
+      context.commit(
         "SET_AUTHORS",
         res.data.map((el) => {
           return { id: el.id, name: el.name };
         })
       );
     });
+  },
+  removePost(context, id) {
+    context.commit("REMOVE_POST", id);
   },
 };
 const mutations = {
@@ -51,6 +54,10 @@ const mutations = {
   },
   SET_AUTHORS(state, authors) {
     state.authors = authors;
+  },
+  REMOVE_POST(state, id) {
+    const index = state.posts.findIndex((post) => post.id === id);
+    state.posts.splice(index, 1);
   },
 };
 

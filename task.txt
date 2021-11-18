@@ -16,13 +16,10 @@ Tytuł
  
 
 Skróconą treść z możliwością kliknięcia „zobacz więcej”
- 
-
 Imię i nazwisko autora
- 
-
 Przycisk do usuwania newsa
  
+
 
 Paginacja ma działać bez przeładowania strony.
 

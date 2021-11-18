@@ -18,7 +18,10 @@
       >{{showMoreButtonName[ showMore ? 1 : 0]}}</button>
     </div>
     <div id="delete-post">
-      <button id="delete-post-btn">usuń post</button>
+      <button
+        @click="removePost"
+        id="delete-post-btn"
+      >usuń post</button>
     </div>
   </div>
 </template>
@@ -36,6 +39,9 @@ export default {
   methods: {
     showMoreToggle() {
       this.showMore = !this.showMore;
+    },
+    removePost() {
+      this.$emit("removePostClicked");
     },
   },
   mounted() {},
