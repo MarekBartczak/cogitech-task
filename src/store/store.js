@@ -3,7 +3,7 @@ import Vuex from "vuex";
 import axios from "axios";
 
 Vue.use(Vuex);
-
+const url = "https://jsonplaceholder.typicode.com/";
 const state = {
   posts: [],
   authors: [],
@@ -30,12 +30,12 @@ const getters = {
 };
 const actions = {
   getPosts(context) {
-    axios.get(`https://jsonplaceholder.typicode.com/posts`).then((res) => {
+    axios.get(`${url}posts`).then((res) => {
       context.commit("SET_POSTS", res.data);
     });
   },
   getAuthors(context) {
-    axios.get(`https://jsonplaceholder.typicode.com/users`).then((res) => {
+    axios.get(`${url}users`).then((res) => {
       context.commit(
         "SET_AUTHORS",
         res.data.map((el) => {
@@ -48,6 +48,7 @@ const actions = {
     context.commit("REMOVE_POST", id);
   },
 };
+
 const mutations = {
   SET_POSTS(state, posts) {
     state.posts = posts;

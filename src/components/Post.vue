@@ -55,6 +55,8 @@ export default {
   border-radius: 5px;
   padding: 10px;
   margin: 20px 5px;
+  width: 80%;
+  max-width: 500px;
   #body-post {
     #post-author {
       font-weight: bold;

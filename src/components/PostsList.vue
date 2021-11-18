@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>POSTS</p>
-    <div id="postsList">
+    <div id="post-list">
       <Post
         v-for="post in signedPostsByAuthor"
         v-bind:key="post.id"
@@ -40,3 +40,12 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+#post-list {
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+}
+</style>
