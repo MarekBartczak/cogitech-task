@@ -26,3 +26,8 @@ Przycisk do usuwania newsa
 
 Paginacja ma działać bez przeładowania strony.
 
+Zadanie z kangurkiem/gwiazdką: 
+możliwość sortowania, 
+filtrowania i wyszukiwania w liście postów.
+
+

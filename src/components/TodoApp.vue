@@ -11,33 +11,48 @@
       <button @click="addItem"> dodaj </button>
     </div>
 
-    <TodoItem
-      :item="item"
+    <!-- <TodoItem
       v-for="item in items"
       v-bind:key="item.id"
       @removeClicked="markAsCompleted(item.id)"
-    />
+    /> -->
+    <div
+      class="item"
+      v-bind:class="{completed: item.completed} "
+      v-for="item in items"
+      v-bind:key="item.id"
+      @click="markAsCompleted(item.id)"
+    >
+      <p>{{item.title}} {{ item.id }}</p>
+      <button
+        v-if="!item.completed"
+        @click="markAsCompleted"
+      > zrobione</button>
+
+    </div>
+
   </div>
 </template>
 
 <script>
-import TodoItem from "./TodoItem.vue";
+// import TodoItem from "./TodoItem.vue";
 export default {
-  components: {
-    TodoItem,
-  },
+  //   components: {
+  //     TodoItem,
+  //   },
   name: "App",
   data() {
     return {
       title: "Welcome on todo list",
       newItem: "",
-      items: [
-        { title: "zrobic zakupy", completed: false, id: 1 },
-        { title: "zjesc sniadanie", completed: false, id: 2 },
-        { title: "pisac projekt", completed: false, id: 3 },
-      ],
     };
   },
+  computed: {
+    items() {
+      return this.$store.state.items;
+    },
+  },
+
   methods: {
     addItem() {
       this.items.push({

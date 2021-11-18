@@ -7,28 +7,26 @@
         v-bind:key="post.id"
         :post="post"
       />
+
     </div>
   </div>
 </template>
 
 
 <script>
-import axios from "axios";
 import Post from "./Post.vue";
 export default {
+  name: "PostList",
   components: {
     Post,
   },
-  data() {
-    return {
-      posts: null,
-    };
+  computed: {
+    posts() {
+      return this.$store.state.posts;
+    },
   },
   mounted() {
-    axios.get(`https://jsonplaceholder.typicode.com/posts`).then((res) => {
-      console.log(res);
-      return (this.posts = res.data);
-    });
+    this.$store.dispatch("getPosts");
   },
 };
 </script>

@@ -18,7 +18,7 @@ export default {
   props: ["item"],
   methods: {
     markAsCompleted() {
-      this.$emit("removeClicked", this.item.id);
+      this.$emit("removeClicked");
     },
   },
 };
