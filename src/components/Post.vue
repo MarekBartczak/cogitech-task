@@ -1,7 +1,7 @@
 <template>
   <div class="post">
     <p id="post-title"> {{post.title}} </p>
-    <p id="post-author"> Josh Smith</p>
+    <p id="post-author"> {{post.author}} </p>
     <p id="post-body">{{post.body}}</p>
 
     <button>usuń post</button>

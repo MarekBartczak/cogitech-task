@@ -3,7 +3,7 @@
     <p>POSTS</p>
     <div id="postsList">
       <Post
-        v-for="post in posts"
+        v-for="post in signedPostsByAuthor"
         v-bind:key="post.id"
         :post="post"
       />
@@ -24,9 +24,13 @@ export default {
     posts() {
       return this.$store.state.posts;
     },
+    signedPostsByAuthor() {
+      return this.$store.getters.signedPostsByAuthor;
+    },
   },
   mounted() {
     this.$store.dispatch("getPosts");
+    this.$store.dispatch("getAuthors");
   },
 };
 </script>
