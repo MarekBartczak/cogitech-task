@@ -7,6 +7,8 @@ Vue.use(Vuex);
 const state = {
   posts: [],
   authors: [],
+  page: 1,
+  amountPostsOnPage: 10,
 };
 const getters = {
   signedPostsByAuthor: (state) => {
